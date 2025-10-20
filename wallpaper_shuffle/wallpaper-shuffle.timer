@@ -1,0 +1,11 @@
+[Unit]
+Description=Shuffle wallpaper every hour
+
+[Timer]
+OnBootSec=30sec
+OnUnitActiveSec=1h
+Persistent=true
+AccuracySec=1s
+
+[Install]
+WantedBy=graphical-session.target

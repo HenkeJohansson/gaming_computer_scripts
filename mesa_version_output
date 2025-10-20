@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+GPU_LINE=$(lspci | grep -E "VGA|3D" | grep -v "Integrated" | head -n1)
+GPU_NAME=$(echo "$GPU_LINE" | sed -E 's/.*Radeon ([^(\[]+).*/Radeon \1/' | xargs)
+DRIVER=$(lspci -k | grep -A2 -E "VGA|3D" | grep -v "Integrated" | head -n3 | grep "Kernel driver in use" | awk '{print $5}')
+MESA=$(glxinfo | grep "OpenGL version string" | awk '{print $4}')
+
+
+echo "GPU: $GPU_NAME ($DRIVER, Mesa $MESA)"

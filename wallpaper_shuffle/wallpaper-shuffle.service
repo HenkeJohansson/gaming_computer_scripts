@@ -1,0 +1,6 @@
+[Unit]
+Description=Wallpaper shuffle
+
+[Service]
+Type=oneshot
+ExecStart=%h/scripts/wallpaper_shuffle/wallpaper_shuffle.sh
