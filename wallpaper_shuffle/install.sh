@@ -26,6 +26,9 @@ chmod +x "$SCRIPT_DIR/wallpaper_shuffle.sh"
 
 systemctl --user daemon-reload
 
+mkdir -p "$SYSTEMD_DIR/plasma-workspace.target.wants"
+ln -sf "$SCRIPT_DIR/$SERVICE_NAME.timer" "$SYSTEMD_DIR/plasma-workspace.target.wants/$SERVICE_NAME.timer"
+
 systemctl --user enable --now "$SERVICE_NAME.timer"
 
 systemctl --user start "$SERVICE_NAME.service"
@@ -36,7 +39,10 @@ sleep 1
 # Check status
 echo
 echo "::: Timer status:"
-systemctl --user list-timers | grep "$SERVICE_NAME"
+#systemctl --user list-timers | grep "$SERVICE_NAME"
+systemctl --user list-timers
+
+cat $HOME/.cache/wallpaper_que
 
 echo
 echo "::: Timer and service installed."
