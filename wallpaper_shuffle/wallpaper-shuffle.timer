@@ -1,5 +1,6 @@
 [Unit]
 Description=Shuffle wallpaper every hour
+After=graphical-session.target
 
 [Timer]
 OnBootSec=30sec
@@ -8,4 +9,4 @@ Persistent=true
 AccuracySec=1s
 
 [Install]
-WantedBy=plasma-workspace.target
+WantedBy=default.target

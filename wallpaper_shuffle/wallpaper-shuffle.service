@@ -1,5 +1,6 @@
 [Unit]
 Description=Wallpaper shuffle
+ConditionEnvironment=DISPLAY
 
 [Service]
 Type=oneshot
