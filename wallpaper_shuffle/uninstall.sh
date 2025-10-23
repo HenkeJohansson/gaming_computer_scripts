@@ -15,6 +15,8 @@ rm -f "$SYSTEMD_DIR/$SERVICE_NAME.service"
 
 systemctl --user daemon-reload
 
+rm -f "$HOME/.cache/wallpaper_queue" "$HOME/.cache/wallpaper_state" || true
+
 echo
 echo "::: Uninstalled!"
 echo "::: Check user timers to confirm it's removed:"
