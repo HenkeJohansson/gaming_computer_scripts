@@ -25,6 +25,11 @@ ln -sf "$SCRIPT_DIR/$SERVICE_NAME.timer" "$SYSTEMD_DIR/$SERVICE_NAME.timer"
 chmod +x "$SCRIPT_DIR/wallpaper_shuffle.sh"
 
 systemctl --user daemon-reload
+
+mkdir -p "$SYSTEMD_DIR/plasma-workspace.target.wants"
+ln -sf "$SCRIPT_DIR/$SERVICE_NAME.timer" "$SYSTEMD_DIR/plasma-workspace.target.wants/$SERVICE_NAME.timer"
+
+
 systemctl --user enable --now "$SERVICE_NAME.timer"
 systemctl --user start "$SERVICE_NAME.service"
 
