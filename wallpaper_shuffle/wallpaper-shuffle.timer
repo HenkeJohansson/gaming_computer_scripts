@@ -9,4 +9,4 @@ Persistent=true
 AccuracySec=1s
 
 [Install]
-WantedBy=plasma-workspace.target
+WantedBy=default.target
